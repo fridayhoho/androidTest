@@ -60,10 +60,9 @@ dependencies {
 
     implementation "com.google.dagger:dagger:2.11"
     kapt 'com.google.dagger:dagger-compiler:2.11'
-    implementation 'com.jakewharton:butterknife:8.4.0'
-    implementation 'com.jakewharton:kotterknife:0.1.0-SNAPSHOT'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
-
+//    implementation 'com.jakewharton:butterknife:8.4.0'
+//    implementation 'com.jakewharton:kotterknife:0.1.0-SNAPSHOT'
+//    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
 
 
 }
