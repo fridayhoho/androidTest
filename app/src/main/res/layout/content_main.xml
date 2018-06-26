@@ -15,4 +15,12 @@
         android:text="Test"
         tools:layout_editor_absoluteX="137dp"
         tools:layout_editor_absoluteY="259dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="content_main"
+        tools:layout_editor_absoluteX="268dp"
+        tools:layout_editor_absoluteY="295dp" />
 </android.support.constraint.ConstraintLayout>
