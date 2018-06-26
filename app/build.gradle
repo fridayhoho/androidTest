@@ -46,7 +46,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
     implementation "com.android.support:appcompat-v7:$versions.support"
     implementation "com.android.support.constraint:constraint-layout:$versions.constraint_layout"
-    implementation "com.android.support:appcompat-v7:$versions.support"
+
     implementation "com.android.support:design:$versions.support"
 
     // LiveData + ViewModel
