@@ -9,9 +9,11 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.android.samples.arch.componentsbasicsample.R;
 
+import java.io.IOException;
 import java.util.concurrent.Callable;
 
 import io.reactivex.Observable;
@@ -20,6 +22,11 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class DetailActivity extends AppCompatActivity {
 
@@ -64,15 +71,41 @@ public class DetailActivity extends AppCompatActivity {
                 }));
     }
 
-    static Observable<String> sampleObservable() {
+     Observable<String> sampleObservable() {
         return Observable.defer(new Callable<ObservableSource<? extends String>>() {
             @Override public ObservableSource<? extends String> call() throws Exception {
                 // Do some long running operation
-                SystemClock.sleep(1000);
+                get();
                 return Observable.just("one", "two", "three", "four", "five");
             }
         });
     }
 
+    public  void get() {
+        OkHttpClient client = new OkHttpClient();
+        //构造Request对象
+        //采用建造者模式，链式调用指明进行Get请求,传入Get的请求地址
+        Request request = new Request.Builder().get().url("http://www.jianshu.com/u/9df45b87cfdf").build();
+        Call call = client.newCall(request);
+        //异步调用并设置回调函数
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Toast.makeText(DetailActivity.this, "Get 失败", Toast.LENGTH_LONG);
+            }
+
+            @Override
+            public void onResponse(Call call, final Response response) throws IOException {
+                final String responseStr = response.body().string();
+                DetailActivity.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Log.d(TAG, responseStr);
+
+                    }
+                });
+            }
+        });
+    }
 
 }
