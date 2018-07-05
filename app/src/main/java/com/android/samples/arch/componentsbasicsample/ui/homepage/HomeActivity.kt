@@ -9,6 +9,7 @@ import android.widget.Toast
 import com.android.samples.arch.componentsbasicsample.R
 import com.android.samples.arch.componentsbasicsample.application.TestApplication
 import com.android.samples.arch.componentsbasicsample.ui.detail.DetailActivity
+import com.android.samples.arch.componentsbasicsample.ui.news.DemoLoadMoreActivity
 
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
@@ -35,8 +36,8 @@ class HomeActivity() : AppCompatActivity(), HomeView {
 //            view ->
 //            make(view, "Replace with your own action", LENGTH_LONG)
 //                    .setAction("Action", null).show()
-            Toast.makeText(this, "Button Clicked", Toast.LENGTH_LONG).show()
-            startActivity(Intent(this@HomeActivity, DetailActivity::class.java))
+            Toast.makeText(this, "Button Clicked", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this@HomeActivity, DemoLoadMoreActivity::class.java))
         }
     }
 
@@ -46,7 +47,7 @@ class HomeActivity() : AppCompatActivity(), HomeView {
 //        presenter.loadHomePage()
 //    }
     override fun displayHomePage(result: String?) {
-        Toast.makeText(this, result, Toast.LENGTH_LONG).show()
+        Toast.makeText(this, result, Toast.LENGTH_SHORT).show()
     }
 
 
