@@ -12,15 +12,22 @@
         android:id="@+id/btnT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
         android:text="Test"
-        tools:layout_editor_absoluteX="137dp"
-        tools:layout_editor_absoluteY="259dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="137dp" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="content_main"
-        tools:layout_editor_absoluteX="268dp"
-        tools:layout_editor_absoluteY="295dp" />
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:text="hello?"
+        app:layout_constraintBottom_toTopOf="@+id/btnT"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.791"
+        tools:layout_editor_absoluteX="137dp" />
 </android.support.constraint.ConstraintLayout>
